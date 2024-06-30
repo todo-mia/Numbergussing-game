@@ -1,0 +1,45 @@
+body {
+    background-color: black;
+    color: white;
+    margin: 0px;
+    padding: 0px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    margin: 0px;
+    padding: 10px;
+    background-color: rgb(57, 55, 55);
+}
+
+a:link {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+a:hover,
+a:visited {
+    color: black;
+}
+
+.btn {
+    padding: 5px 55px;
+    border-radius: 10px;
+    background-color: rgb(121, 119, 119);
+}
+
+.text {
+    text-align: center;
+}
+#subt{
+    background-color: black;
+    color: antiquewhite;
+    border: 1px dotted white;
+    height: 50px;
+    width: 150px;
+    border-radius: 10px;
+}
+#guessField{
+    height: 40px;
+}
