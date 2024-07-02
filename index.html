@@ -1,38 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess the number</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="nav">
-        <button class="btn"><a href="index.html">HOME</a></button>
-        <button class="btn"><a href="https://github.com/todo-mia" target="_blank">GITHUB</a></button>
+    <div class="container">
+        <div class="gradient"></div>
     </div>
-    <div class="text">
-        <h1>NUMBER GUESSING GAME</h1>
-        <p>Try and guess a number between 1 and 100. <br>
-            You have 10 attempts to guess the right number.
-        </p>
-        <br><br><h1>GUESS A NUMBER</h1>
+    <div class="textArea">
+        <div class="nav">
+            <a class="btn" href="index.html">HOME</a>
+            <a class="btn" href="https://github.com/todo-mia" target="_blank">GITHUB</a>
+        </div>
+        <div class="text">
+            <h1>NUMBER GUESSING GAME</h1>
+            <p>Try and guess a number between 1 and 100. <br>
+                You have 10 attempts to guess the right number.
+            </p>
+            <br><br>
+            <h2 class="noHeading">GUESS A NUMBER</h2>
 
             <form class="form">
-                <label for="guessField" id="guess" ></label>
-                <input type="text" id="guessField" class="guessField" ><br><br><br>
-                <input type="submit" id="subt" value="SUBMIT GUESS">      
+                <label for="guessField" id="guess"></label>
+                <input type="text" id="guessField" class="guessField"><br><br><br>
+                <input type="submit" id="subt" value="SUBMIT GUESS">
             </form>
 
             <div class="resultParas">
-                
+
                 <div class="preguess">Previous guesses : </div>
                 <div class="guessremain">Guesses remaining : 10</div>
                 <p class="lowOrHigh"></p>
-                </div>
-                
             </div>
-            
+
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>

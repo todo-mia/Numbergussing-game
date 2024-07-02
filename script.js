@@ -10,7 +10,7 @@ const StartOver = document.querySelector('.resultParas');
 const p = document.createElement('p');
 
 let prevGuess = [];
-let NumGuess = 1;
+let NumGuess = 0;
 let PlayGame = true;
 
 if (PlayGame) {
@@ -19,22 +19,6 @@ if (PlayGame) {
         const guess = parseInt(guessField.value);
         validateGuess(guess); 
     });
-}
-
-function validateGuess(guess) {
-    if (isNaN(guess) || guess < 1 || guess > 100) {
-        alert('Please enter a valid number between 1 and 100.');
-    } else {
-        prevGuess.push(guess);
-        if (NumGuess === 10) {
-            displayGuess(guess);
-            displayMessage(`game over, random number was ${randomNumber}.`);
-            endGame();
-        } else {
-            displayGuess(guess);
-            checkGuess(guess);
-        }
-    }
 }
 
 
@@ -55,11 +39,29 @@ function displayGuess(guess) {
     preguess.innerHTML += `${guess} `;
     NumGuess++;
     guessremain.innerHTML =`Guesses remaining: ${10 - NumGuess}`;
+    console.log(NumGuess);
 }
 
 
 function displayMessage(message) {
     lowOrHigh.innerHTML = `<h2>${message}</h2>`;
+    lowOrHigh.classList.add("finalno")
+}
+
+function validateGuess(guess) {
+    if ((isNaN(guess) || guess < 1) || guess > 100) {
+        alert('Please enter a valid number between 1 and 100.');
+    } else {
+        prevGuess.push(guess);
+        if (NumGuess === 9) {
+            displayGuess(guess);
+            displayMessage(`Game Over | Random Number Was ${randomNumber}.`);
+            endGame();
+        } else {
+            displayGuess(guess);
+            checkGuess(guess);
+        }
+    }
 }
 
 
@@ -67,7 +69,8 @@ function endGame() {
     guessField.value = '';
     guessField.setAttribute('disabled', 'disabled');
     p.classList.add('button');
-    p.innerHTML = `<h2 class='newGame'>Start New Game</h2>`;
+    p.innerHTML = `<h2 class='newGame'>New Game</h2>`;
+    p.classList.add("btn")
     StartOver.appendChild(p);
     PlayGame = false;
     newGame();
@@ -78,7 +81,7 @@ function newGame() {
     newgamebutton.addEventListener('click', function (e) {
         randomNumber = parseInt((Math.random() * 100) + 1);
         prevGuess = [];
-        NumGuess = 1;
+        NumGuess = 0;
         guessField.removeAttribute('disabled');
         preguess.innerHTML = 'Previous guesses: ';
         guessremain.innerHTML = `${10 - NumGuess}`;
